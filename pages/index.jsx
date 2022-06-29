@@ -2,6 +2,7 @@ import styles from "../styles/Home.module.css";
 import { writeMealData, getMealData } from "../utils/firebase";
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import { useState } from "react";
+import dayjs from "dayjs";
 
 export default function Home({ menuData }) {
   const [currentMenu, setCurrentMenu] = useState("");
@@ -48,7 +49,10 @@ export default function Home({ menuData }) {
         메뉴 제출하기
       </button>
 
-      <h1>오늘의 메뉴는!?????!?!?!??!?!?</h1>
+      <h1>
+        오늘은 {dayjs().format("YY-MM-DD-ddd")} 입니다. <br />
+        오늘의 메뉴는!?????!?!?!??!?!?
+      </h1>
       <ul>
         {menuData.map((menu, idx) => (
           <li key={idx}>{menu}</li>
