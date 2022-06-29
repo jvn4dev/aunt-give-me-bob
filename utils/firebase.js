@@ -4,12 +4,19 @@ import dayjs from "dayjs";
 
 const initializeFirebase = () => {
   const firebaseConfig = {
-    databaseURL:
-      "https://auntgivemebob-default-rtdb.asia-southeast1.firebaseio.com",
-  };
-
-  const app = initializeApp(firebaseConfig);
-  getDatabase(app);
+    databaseURL: 'https://auntgivemebob-default-rtdb.asia-southeast1.firebaseio.com',
+    apiKey: 'AIzaSyCl4uRj-tJvTfylbmJ6yUY8HsfLT8RfzWU',
+    authDomain: 'auntgivemebob.firebaseapp.com',
+    databaseURL: 'https://auntgivemebob-default-rtdb.asia-southeast1.firebasedatabase.app',
+    projectId: 'auntgivemebob',
+    storageBucket: 'auntgivemebob.appspot.com',
+    messagingSenderId: '26251065261',
+    appId: '1:26251065261:web:cedc1ee2c7d13ab8e2d324',
+    measurementId: 'G-VDQN6ZQNVV'
+  }
+  
+  const app = initializeApp(firebaseConfig)
+  getDatabase(app)
 
   return app;
 };
