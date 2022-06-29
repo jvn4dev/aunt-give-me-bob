@@ -32,9 +32,13 @@ const writeMealData = (date, menus) => {
  */
 const getMealData = async (date = new Date()) => {
   const db = getDatabase()
-  const menus = await get(ref(db, dayjs(date).format('YYYYMMDD')))
+  try {
+    const menus = await get(ref(db, dayjs(date).format('YYYYMMDD')))
 
-  return menus.exists() ? menus.val()?.menus ?? [] : []
+    return menus.exists() ? menus.val()?.menus ?? [] : []
+  } catch (e) {
+    return []
+  }
 }
 
 export { initializeFirebase, writeMealData, getMealData }
