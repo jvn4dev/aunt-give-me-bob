@@ -15,8 +15,8 @@ const initializeFirebase = () => {
 
 /**
  * 특정 날짜에 메뉴 데이터 쓰기
- * @param {*} date 날짜 '2022-06-29' or Date
- * @param {*} menus 입력한 메뉴들
+ * @param {string | Date} date 날짜 '2022-06-29' or Date
+ * @param {string[]} menus 입력한 메뉴들
  */
 const writeMealData = (date, menus) => {
   const db = getDatabase()
@@ -27,13 +27,14 @@ const writeMealData = (date, menus) => {
 
 /**
  * 특정 날짜의 메뉴 가져오기
- * @param {*} date 날짜 '2022-06-29' or Date
+ * @param {string | Date} date 날짜 '2022-06-29' or Date
+ * @returns {string[]}
  */
 const getMealData = async (date = new Date()) => {
   const db = getDatabase()
   const menus = await get(ref(db, dayjs(date).format('YYYYMMDD')))
 
-  return menus.exists() ? menus.val()?.menus ?? '' : ''
+  return menus.exists() ? menus.val()?.menus ?? [] : []
 }
 
 export { initializeFirebase, writeMealData, getMealData }
