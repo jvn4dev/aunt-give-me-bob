@@ -1,23 +1,26 @@
 import styles from "../styles/Home.module.css";
 import { writeMealData, getMealData } from "../utils/firebase";
-import { useQuery, useMutation, useQueryClient } from "react-query";
+import { useQuery, QueryClient, dehydrate } from "react-query";
 import { useState } from "react";
 import dayjs from "dayjs";
 
-export default function Home({ menuData }) {
+export default function Home() {
+  const { data, isLoading, isFetching, refetch } = useQuery("meals", () =>
+    getMealData(new Date())
+  );
+
   const [currentMenu, setCurrentMenu] = useState("");
   const [menuList, setMenuList] = useState([]);
-  const queryClient = useQueryClient();
 
-  // const query = useQuery("menus", getMenus);
+  if (!data) return <div>데이터가 없습니다</div>;
+  if (isLoading) return <h1>데이터를 로딩 중입니다.</h1>;
 
-  // Mutations
-  // const mutation = useMutation(postMenu, {
-  //   onSuccess: () => {
-  //     // Invalidate and refetch
-  //     queryClient.invalidateQueries("menus");
-  //   },
-  // });
+  const handleMenuSubmit = () => {
+    writeMealData(new Date(), menuList);
+    refetch();
+    setMenuList([]);
+  };
+
   return (
     <>
       <div>
@@ -45,16 +48,14 @@ export default function Home({ menuData }) {
           <li key={i}>{m}</li>
         ))}
       </ul>
-      <button onClick={() => writeMealData(new Date(), menuList)}>
-        메뉴 제출하기
-      </button>
+      <button onClick={handleMenuSubmit}>메뉴 제출하기</button>
 
       <h1>
         오늘은 {dayjs().format("YY-MM-DD-ddd")} 입니다. <br />
         오늘의 메뉴는!?????!?!?!??!?!?
       </h1>
       <ul>
-        {menuData.map((menu, idx) => (
+        {data?.map((menu, idx) => (
           <li key={idx}>{menu}</li>
         ))}
       </ul>
@@ -62,12 +63,14 @@ export default function Home({ menuData }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const menuData = await getMealData(new Date());
+export async function getServerSideProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery("meals", () => getMealData(new Date()));
 
   return {
     props: {
-      menuData,
+      dehydratedState: dehydrate(queryClient),
     },
   };
 }
