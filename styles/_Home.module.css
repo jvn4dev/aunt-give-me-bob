@@ -1,0 +1,103 @@
+.container {
+    padding: 0 2rem;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 980px;
+    margin: 20% auto;
+    padding: 0 40px;
+}
+
+
+.pencil {
+    position: relative;
+    margin: 5rem 0 3rem;
+}
+
+.wrapper img {
+    max-width: 100%;
+    display: inline-block;
+}
+
+.ing {
+    position: absolute;
+    bottom: -10px;
+    right: 433px;
+    display: flex;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 50px;
+    animation: ing-spin infinite 2s linear;
+    transform-origin: 50% 50%;
+}
+
+@keyframes ing-spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.input_wrapper {
+    margin: 10px 0;
+    display: flex;
+    gap: 4px;
+}
+
+.input_wrapper input {
+    all: unset;
+    width: 80%;
+    max-width: 50%;
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid #1f1d11;
+}
+
+.input_wrapper button {
+    all: unset;
+    border-radius: 10px;
+    background-color: #1f1d11;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.input_wrapper button:hover,
+.submit:hover {
+    background-color: #1c8bf9;
+}
+
+.submit {
+    all: unset;
+    color: white;
+    border-radius: 10px;
+    background-color: #1f1d11;
+    padding: 7px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.menu_list {
+    border: 2px dashed #1f1d11;
+    width: 50%;
+    max-width: 980px;
+    border-radius: 10px;
+    padding: 10px 10px 20px;
+}
+
+.result {
+    border: 2px solid #1f1d11;
+    width: 50%;
+    max-width: 980px;
+    border-radius: 10px;
+    padding: 10px 10px 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
