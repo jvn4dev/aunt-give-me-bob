@@ -70,7 +70,6 @@ export default function Home() {
           ))}
         </ul>
         <button className={S.submit} onClick={handleMenuSubmit}>메뉴 제출하기</button>
-
       </div>
       <h2>
         오늘은 {dayjs().format(`YY년 MM월 DD일 dddd`)} 입니다. <br />
