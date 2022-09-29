@@ -14,9 +14,6 @@ export default function Home() {
   const [menuList, setMenuList] = useState([]);
   const inputRef = useRef(null);
 
-  if (!data) return <div>데이터가 없습니다</div>;
-  if (isLoading) return <h1>데이터를 로딩 중입니다.</h1>;
-
   const handleMenuSubmit = () => {
     writeMealData(new Date(), menuList);
     refetch();
@@ -25,7 +22,10 @@ export default function Home() {
 
   useEffect(() => {
     inputRef.current.focus();
-  });
+  },[]);
+
+  if (!data) return <div>데이터가 없습니다</div>;
+  if (isLoading) return <h1>데이터를 로딩 중입니다.</h1>;
 
   return (
     <div className={S.wrapper}>
