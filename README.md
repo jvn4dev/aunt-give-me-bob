@@ -1,34 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 이모밥줘잉!
+## 이모네 메뉴조회 웹서비스
 
-## Getting Started
+### Background
+많은 슈퍼캣 및 젭 직원들이 즐겨먹는 이모밥줘잉.</br>
+하지만 이모네 메뉴를 확인하기 위해선 지하 식당 입구까지 가야 오늘의 메뉴를 확인할 수 있다.
+그 이유 때문에 몇몇의 사람들은 슬랙에서 오늘의 메뉴를 물어보거나 오늘이 어떤 메뉴일지 기대에 찬 마음으로 가서 먹거나 식당앞에서 실망하여 다른 식당으로
+되돌아가는 경우가 있었다.
 
-First, run the development server:
+그런 문제들때문에 오늘의 메뉴를 아는 사람들은 쉽게 공유하고 모르는 사람들은 쉽게 정보를 볼 수 있는 사이트를 만들고자 하였다.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Stacks
+- Nextjs
+- Firebase
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### PR
+누구나 해당 프로젝트에 참여할 수 있고 PR을 날려주시면 감사하겠다.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Contributors
+<a href="https://github.com/jvn4dev/aunt-give-me-bob/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=jvn4dev/aunt-give-me-bob" />
+</a>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Made with [contrib.rocks](https://contrib.rocks).
+### License
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ZEP © Chung Seongjun
