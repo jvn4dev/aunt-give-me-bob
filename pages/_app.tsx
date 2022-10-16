@@ -3,6 +3,7 @@ import { initializeFirebase } from "../utils/firebase";
 
 import "../styles/globals.css";
 import { useState } from "react";
+import React from "react";
 
 initializeFirebase();
 

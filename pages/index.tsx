@@ -1,9 +1,10 @@
-import styles from "../styles/Home.module.css";
-import S from "../styles/_Home.module.css";
+// @ts-ignore
+import S from "../styles/Home.module.css";
 import { writeMealData, getMealData } from "../utils/firebase";
 import { useQuery, QueryClient, dehydrate } from "react-query";
 import { useEffect, useState, useRef } from "react";
 import dayjs from "dayjs";
+import React from "react";
 
 export default function Home() {
   const { data, isLoading, isFetching, refetch } = useQuery("meals", () =>
